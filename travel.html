@@ -7,12 +7,15 @@
     <title>Travel Agency Landing Page</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&display=swap');
+
 
 
         :root {
             --primaryColor: #FB8F1D;
             --secondaryColor: #202336;
             --themeFont: "Inter";
+            --secondaryFont: "Playfair";
         }
 
         .travel_universal * {
@@ -117,6 +120,7 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            cursor: pointer;
         }
 
         .sidebar_navlist_wrapper {
@@ -177,14 +181,111 @@
             left: 0;
         }
 
+        .sidebar_hide_btn_wrapper {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            align-content: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
         .sidebar_hide_btn {
             position: absolute;
-            top: 0;
-            right: -63px;
+            top: 14px;
+            right: -51px;
+        }
+
+        /* ==========================Header navbar style END ============================= */
+
+        .slider_design_main_wrapper {
+            padding-top: 72px;
+        }
+
+        .form_title {
+            font-size: 64px;
+            color: #202336;
+            font-weight: 700;
+            font-family: var(--secondaryFont);
+            line-height: 80px;
+        }
+
+        .right_side_banner_img {
+            display: block;
+            height: auto;
+            width: 100%;
+            /* max-width: 471px; */
+            margin: 0 auto;
+        }
+
+        .form_main_wrapper {
+            padding-top: 40px;
+        }
+
+        .form_subtitle_wrapper {
+            position: relative;
+            padding-top: 35px;
+            z-index: -1;
+        }
+
+        .form_subtitle_wrapper::after {
+            content: " ";
+            position: absolute;
+            height: 2px;
+            width: 60px;
+            background-color: #FB8F1D;
+            bottom: -9px;
+            left: 0;
+            z-index: -1;
+        }
+
+        .right_side_banner_img_area_wrapper {
+            padding-top: 50px;
+        }
+
+        .form_subtitle {
+            font-size: 22px;
+            color: var(--secondaryColor);
+            font-family: var(--themeFont);
+            font-weight: 500;
+        }
+
+        #location_option {
+            width: 100%;
+            padding: 10px 15px;
+            background: none;
+            outline: navajowhite;
+            border: 1px solid #AFB0B9;
+            border-radius: 6px;
+        }
+
+        .form_group_one_wrapper {
+            display: flex;
+            gap: 23px;
+            flex-direction: column;
+            /* align-items: center;
+            justify-content: center; */
+        }
+
+        .form_main_wrapper {
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+        }
+
+        input[placeholder],
+        [placeholder],
+        *[placeholder] {
+            color: #202336 !important;
         }
 
 
-
+        @media screen and (min-width:500px) {
+            #location_option {
+                width: 100%;
+            }
+        }
 
         @media screen and (min-width:640px) {
             .header_button {
@@ -208,6 +309,28 @@
             .sidebar_button_wrapper {
                 display: none;
             }
+
+            /* ----Slider design style---- */
+            .right_side_banner_img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .form_group_one_wrapper {
+                display: flex;
+                gap: 45px;
+                flex-direction: row;
+            }
+
+            #location_option {
+                width: 260px;
+            }
+
+            .form_group_one_wrapper {
+                align-items: center;
+                justify-content: center;
+            }
+
         }
 
         @media screen and (min-width:1024px) {
@@ -232,6 +355,30 @@
             .sidebar_inner_content_wrapper {
                 display: none;
             }
+
+            .side_bar_main_wrapper {
+                display: none;
+            }
+
+            /* -------- Slider design style------------- */
+            .slider_section_inner_content_wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+            }
+
+            .right_side_banner_img {
+                width: 100%;
+            }
+
+            .right_side_banner_img_area_wrapper {
+                padding-top: unset;
+            }
+
+            .form_group_one_wrapper {
+                align-items: unset;
+                justify-content: unset;
+            }
         }
     </style>
 </head>
@@ -242,6 +389,7 @@
     <section>
         <div class="header_section_main_wrapper travel_universal">
 
+            <!-- header navbar design -->
             <div class="header_navbar_wrapper">
                 <div class="header_inner_content_wrapper">
                     <div class="travel_container">
@@ -291,7 +439,7 @@
                 </div>
             </div>
 
-            <!--  Mobile deive sidebar -->
+            <!--  Mobile deive sidebar design -->
             <div class="side_bar_main_wrapper">
                 <div class="sidebar_inner_content_wrapper">
                     <div class="mobile_device_menu_wrapper">
@@ -316,21 +464,77 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar_hide_btn_wrapper">
+                    <div class="sidebar_hide_btn_wrapper" id="sidebar_hide_btn_ID">
                         <span class="sidebar_hide_btn">
-                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
                                     <path
                                         d="M16 8L8 16M8.00001 8L16 16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                        stroke="#000000" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                        stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     </path>
                                 </g>
                             </svg>
                         </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- slider design  -->
+            <div class="slider_design_main_wrapper">
+                <div class="travel_container">
+                    <div class="slider_section_inner_content_wrapper">
+                        <div class="left_side_form_area_wrapper">
+
+                            <div class="form_title_wrapper">
+                                <span class="form_title">Explore and <br> Travel</span>
+                            </div>
+
+                            <div class="form_subtitle_wrapper">
+                                <span class="form_subtitle">Holiday finder</span>
+                            </div>
+
+                            <div class="form_main_wrapper">
+                                <div class="form_group_one_wrapper">
+                                    <form>
+                                        <select name="location" id="location_option">
+                                            <option value="location">Location</option>
+                                            <option value="saab">Dhaka</option>
+                                            <option value="opel">Barisal</option>
+                                            <option value="audi">Rangpur</option>
+                                        </select>
+                                    </form>
+                                    <form>
+                                        <select name="location" id="location_option">
+                                            <option value="location">Activity</option>
+                                            <option value="saab">Bikeing</option>
+                                            <option value="opel">Hiking</option>
+                                            <option value="audi">Swiming</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="form_group_two_wrapper form_group_one_wrapper">
+                                    <form>
+                                        <select name="location" id="location_option">
+                                            <option value="location">Grade</option>
+                                            <option value="saab">A grade</option>
+                                            <option value="opel">B grade</option>
+                                            <option value="audi">C grade</option>
+                                        </select>
+                                    </form>
+                                    <form>
+
+                                        <input type="date" id="location_option" placeholder="Date">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="right_side_banner_img_area_wrapper">
+                            <img class="right_side_banner_img" src="./Asset/Image/thousand-01 1.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
