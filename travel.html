@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Agency Landing Page</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 
         :root {
-            --primaryColor: #c1a59a;
-            --secondaryColor: #1e272e;
-            --themeFont: "Poppins";
+            --primaryColor: #FB8F1D;
+            --secondaryColor: #202336;
+            --themeFont: "Inter";
         }
 
-        .s0501_universal * {
+        .travel_universal * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -25,16 +26,324 @@
             margin: 0;
         }
 
-        .s0501_container {
+        .travel_container {
             max-width: 1340px;
             margin: 0 auto;
             padding: 0px 20px;
+        }
+
+        .header_navbar_wrapper {
+            position: relative;
+        }
+
+        .header_inner_content_wrapper {
+            background-color: #f9f9f9;
+        }
+
+        .header_navbar_inner_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0px;
+        }
+
+        .header_right_side_menu_wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+        }
+
+        .header_navlist_wrapper {
+            display: none;
+            list-style: none;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .brand_logo {
+            display: block;
+        }
+
+        .header_button {
+            padding: 7px 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primaryColor);
+            border: 1px solid var(--primaryColor);
+            border-radius: 8px;
+            background: none;
+            cursor: pointer;
+        }
+
+        .active_btn {
+            background-color: var(--primaryColor);
+            color: white;
+        }
+
+        .header_button_wrapper {
+            display: none;
+            gap: 18px;
+        }
+
+        svg {
+            display: flex;
+        }
+
+        .header_navlist_item {
+            font-size: 16px;
+            font-weight: 400;
+            color: #B8BECD;
+            cursor: pointer;
+
+        }
+
+        .active_nav_item {
+            color: #202336;
+        }
+
+        .sidebar_inner_content_wrapper {
+            position: absolute;
+            height: 100%;
+            width: 270px;
+            top: 0;
+            left: -100%;
+            background-color: rgb(241 241 241);
+            padding: 25px 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile_device_menu_wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar_navlist_wrapper {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 17px;
+        }
+
+        .sidebar_navlist_item {
+            font-size: 14px;
+            font-weight: 400;
+            color: #B8BECD;
+            cursor: pointer;
+        }
+
+        .active_sidebar_nav_item {
+            color: #202336;
+        }
+
+        .sidebar_title_wrapper {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primaryColor);
+        }
+
+        .sidebar_register_btn {
+            padding: 7px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primaryColor);
+            border: 1px solid var(--primaryColor);
+            border-radius: 8px;
+            background: none;
+            cursor: pointer;
+        }
+
+        .sidebar_button_wrapper {
+            display: flex;
+            gap: 18px;
+        }
+
+        .active_register_btn {
+            background-color: var(--primaryColor);
+            color: white;
+        }
+
+        .active_mobile_sidebar.side_bar_main_wrapper {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(30, 39, 46, 70%);
+            position: fixed;
+            top: 0;
+            transition: all .9s ease-in-out;
+        }
+
+        .open_sidebar.sidebar_inner_content_wrapper {
+            left: 0;
+        }
+
+        .sidebar_hide_btn {
+            position: absolute;
+            top: 0;
+            right: -63px;
+        }
+
+
+
+
+        @media screen and (min-width:640px) {
+            .header_button {
+                padding: 8px 46px;
+                font-size: 15px;
+            }
+
+            .header_button_wrapper {
+                display: flex;
+                gap: 35px;
+            }
+
+            .sidebar_inner_content_wrapper {
+                width: 320px;
+            }
+
+            .sidebar_register_btn {
+                padding: 7px 40px;
+            }
+
+            .sidebar_button_wrapper {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:1024px) {
+            .header_navbar_inner_content {
+                padding: 25px 0px;
+            }
+
+            .header_navlist_wrapper {
+                display: flex;
+            }
+
+            .mobile_device_menu_wrapper {
+                display: none;
+            }
+
+            .large_device_menu_wrapper {
+                display: flex;
+                align-items: center;
+                gap: 35px;
+            }
+
+            .sidebar_inner_content_wrapper {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Header section start -->
+    <section>
+        <div class="header_section_main_wrapper travel_universal">
+
+            <div class="header_navbar_wrapper">
+                <div class="header_inner_content_wrapper">
+                    <div class="travel_container">
+                        <div class="header_navbar_inner_content">
+                            <div class="header_brand_logo_wrapper">
+                                <span class="brand_logo_wrapper">
+                                    <img class="brand_logo" src="./Asset/Image/logo (1).png" alt="">
+                                </span>
+                            </div>
+                            <div class="header_right_side_menu_wrapper">
+                                <div class="large_device_menu_wrapper">
+                                    <div class="header_menu_wrapper">
+                                        <ul class="header_navlist_wrapper">
+                                            <li class="header_navlist_item active_nav_item">Home</li>
+                                            <li class="header_navlist_item">Destonation </li>
+                                            <li class="header_navlist_item">About</li>
+                                            <li class="header_navlist_item">Partner</li>
+                                        </ul>
+                                    </div>
+                                    <div class="header_button_wrapper">
+                                        <div class="button_wrapper">
+                                            <button class="header_button">Login</button>
+                                        </div>
+                                        <div class="button_wrapper">
+                                            <button class="header_button active_btn">Register</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mobile_device_menu_wrapper">
+                                    <span id="Hamburger_id" class="mobile_hamburger"><svg width="50px" height="50px"
+                                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355ZM18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16ZM18 12.75C18.4142 12.75 18.75 12.4142 18.75 12C18.75 11.5858 18.4142 11.25 18 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H18ZM18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"
+                                                    fill="#1C274C"></path>
+                                            </g>
+                                        </svg></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--  Mobile deive sidebar -->
+            <div class="side_bar_main_wrapper">
+                <div class="sidebar_inner_content_wrapper">
+                    <div class="mobile_device_menu_wrapper">
+                        <div class="sidebar_title_wrapper">
+                            <span class="sidebar_title">Usefull Link</span>
+                        </div>
+                        <div class="sidebar_menu_wrapper">
+                            <ul class="sidebar_navlist_wrapper">
+                                <li class="sidebar_navlist_item active_sidebar_nav_item">Home</li>
+                                <li class="sidebar_navlist_item">Destonation </li>
+                                <li class="sidebar_navlist_item">About</li>
+                                <li class="sidebar_navlist_item">Partner</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar_button_wrapper">
+                            <div class="sidebar_btn">
+                                <button class="sidebar_register_btn">Login</button>
+                            </div>
+                            <div class="sidebar_btn">
+                                <button class="sidebar_register_btn active_register_btn">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_hide_btn_wrapper">
+                        <span class="sidebar_hide_btn">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M16 8L8 16M8.00001 8L16 16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                        stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                    </path>
+                                </g>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+    <!-- Header section END -->
+
+
+    <script src="/travel.js"></script>
 </body>
 
 </html>
